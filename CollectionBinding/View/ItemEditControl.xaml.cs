@@ -26,7 +26,7 @@ namespace CollectionBinding
                     new StaffInfoArgs(0, "(初期値)"),
                     (d, e) =>
                     {
-                        if (((ItemEditControl)d).IsDebugOUt)
+                        if (((ItemEditControl)d).IsDebugOut)
                         {
                             var args = (StaffInfoArgs)e.NewValue;
                             Debug.WriteLine($"☆StaffInfoPropertyChanged[番号：{args.Number} 氏名：{args.Name}]");
@@ -43,7 +43,7 @@ namespace CollectionBinding
         }
 
         /// <summary>デバッグ出力フラグ</summary>
-        public bool IsDebugOUt { private get; set; } = false;
+        public bool IsDebugOut { private get; set; } = false;
 
         //=================================================
         // コンストラクター

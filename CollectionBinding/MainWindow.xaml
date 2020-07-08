@@ -50,13 +50,13 @@
                                           Orientation="Vertical"
                                           Background="DarkGray"
                                           StaffInfos="{Binding StaffInfos, Mode=TwoWay}"
-                                          IsDebugOUt="True"
+                                          IsDebugOut="True"
                                           />
                 <local:ItemEditStackPanel Grid.Column="1" Margin="1,2,2,2"
                                           Orientation="Vertical"
                                           Background="DarkGray"
                                           StaffInfos="{Binding StaffInfos, Mode=TwoWay}"
-                                          IsDebugOUt="False"
+                                          IsDebugOut="False"
                                           />
             </Grid>
             <ListBox Grid.Row="1"

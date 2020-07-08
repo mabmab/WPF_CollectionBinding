@@ -34,8 +34,8 @@ namespace CollectionBinding
         /// <param name="draggedControl">ドラッグするコントロール</param>
         /// <param name="offset">固定オフセット量</param>
         public DragUserControlAdorner(UIElement adornedElement,
-                                  UserControl draggedControl,
-                                  Point offset) : base(adornedElement)
+                                      UserControl draggedControl,
+                                      Point offset) : base(adornedElement)
         {
             // ドラッグするコントロールをイメージに変換
             Rect bounds = VisualTreeHelper.GetDescendantBounds(draggedControl);

@@ -59,9 +59,8 @@ namespace CollectionBinding
             set { SetValue(StaffInfosProperty, value); }
         }
 
-
         /// <summary>デバッグ出力フラグ</summary>
-        public bool IsDebugOUt { private get; set; } = false;
+        public bool IsDebugOut { private get; set; } = false;
 
         //=================================================
         // コンストラクター
@@ -185,7 +184,7 @@ namespace CollectionBinding
             {
                 // スタックパネルにアイテム編集コントロールを追加
                 var itemEdit = new ItemEditControl();
-                itemEdit.IsDebugOUt = IsDebugOUt;
+                itemEdit.IsDebugOut = IsDebugOut;
                 Children.Add(itemEdit);
 
                 // アイテム編集コントロールとスタッフ情報コレクションの要素ひとつをBinding
