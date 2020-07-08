@@ -1,0 +1,70 @@
+﻿<!-- メインウィンドウ -->
+<Window x:Class="CollectionBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CollectionBinding"
+        mc:Ignorable="d" Height="300" Width="500"
+        Title="CollectionBinding">
+
+    <!-- データコンテキスト(ビューモデル) -->
+    <Window.DataContext>
+        <local:ViewModel x:Name="_vm"/>
+    </Window.DataContext>
+
+    <!-- リソース -->
+    <Window.Resources>
+        <!-- ListBox用アイテムテンプレート -->
+        <DataTemplate x:Key="ListBoxItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Number, Mode=OneWay}"
+                           />
+                <TextBlock Margin="3,0,0,0"
+                           Text="{Binding Name, Mode=OneWay}"
+                           />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <!-- クライアント領域 -->
+    <DockPanel>
+        <!-- メニュー -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="追加" Click="MenuItem_Add_Click"/>
+            <MenuItem Header="削除" Click="MenuItem_Delete_Click"/>
+            <MenuItem Header="ソート" Click="MenuItem_Sort_Click"/>
+        </Menu>
+        <!-- ビュー -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <local:ItemEditStackPanel Grid.Column="0" Margin="2,2,1,2"
+                                          Orientation="Vertical"
+                                          Background="DarkGray"
+                                          StaffInfos="{Binding StaffInfos, Mode=TwoWay}"
+                                          IsDebugOUt="True"
+                                          />
+                <local:ItemEditStackPanel Grid.Column="1" Margin="1,2,2,2"
+                                          Orientation="Vertical"
+                                          Background="DarkGray"
+                                          StaffInfos="{Binding StaffInfos, Mode=TwoWay}"
+                                          IsDebugOUt="False"
+                                          />
+            </Grid>
+            <ListBox Grid.Row="1"
+                     VerticalContentAlignment="Top"
+                     ItemsSource="{Binding StaffInfos, Mode=TwoWay}"
+                     ItemTemplate="{StaticResource ListBoxItemTemplate}"
+                     />
+        </Grid>
+    </DockPanel>
+
+</Window>
